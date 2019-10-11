@@ -44,20 +44,20 @@ SELECT        h.Allocation_credit_check AS Hdr_Allocation_credit_check, h.Compan
                          LC.[Elemental_Cost_(Base)], LC.[Elemental_Cost_(Prime)_of_Landed_Cost_Line], C.Class_Code, C.Class_Name, R.Item, R.Item_Description, R.Specification_1, R.Specification_2, R.Specification_3, R.Item_Type, R.Item_Class, 
                          R.Division, R.[Sub-division], R.Item_Group_Major, R.Item_Group_Minor, R.Status, pgmn.Parameter_Desc, pgmj.Parameter_Desc AS Expr109
 FROM            [DickiesLife_Europe_BI].[dbo].[raw_PMP02] AS h INNER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_PMP03] AS l ON h.PO_Key = l.PO_Key INNER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_PMP53] AS s ON l.PO_Line_Key = s.PO_Line_Key INNER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_PMP03] l ON h.PO_Key = l.PO_Key INNER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_PMP53] s ON l.PO_Line_Key = s.PO_Line_Key INNER JOIN
                          [DickiesLife_Europe_BI].[dbo].[raw_FLP081] ON h.Company_Number = [DickiesLife_Europe_BI].[dbo].[raw_FLP081].[Company_Number] INNER JOIN
                          [DickiesLife_Europe_BI].[dbo].[raw_APP06] ON h.PO_Key = [DickiesLife_Europe_BI].[dbo].[raw_APP06.PO_Key] INNER JOIN
                          [DickiesLife_Europe_BI].[dbo].[raw_DKPM200PF] ON s.PO_Item_Key = [DickiesLife_Europe_BI].[dbo].[raw_DKPM200PF].[PO_Item_Key] INNER JOIN
                          [DickiesLife_Europe_BI].[dbo].[raw_DKPMHXP] ON h.PO_Key = [DickiesLife_Europe_BI].[dbo].[raw_DKPMHXP].[PO_Key] LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[DickiesLife_Items] AS IT ON s.Item_Number = IT.Item LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_PLP05] AS SUPP ON h.Company_Number + REPLACE(h.Supplier, ' ', '') + h.Sup_Adress_Seq = SUPP.Supplier_Key LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_PMP04] AS LC ON h.Order_Number = LC.Order_Number AND s.Line_Number = LC.Line_Number LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_PMP02E] AS FRT ON h.Order_Number = FRT.Order_Number LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP35] AS R ON IT.Style = R.Item LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[Item_Class] AS C ON R.Item_Class = C.Class_Code LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] AS pgmn ON IT.Item_Group_Minor = pgmn.Parameter_Search_Key AND pgmn.Parameter_Type = 'PGMN' LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] AS pgmj ON IT.Item_Group_Major = pgmj.Parameter_Search_Key AND pgmj.Parameter_Type = 'PGMJ'
+                         [DickiesLife_Europe_BI].[dbo].[DickiesLife_Items] IT ON s.Item_Number = IT.Item LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_PLP05] SUPP ON h.Company_Number + REPLACE(h.Supplier, ' ', '') + h.Sup_Adress_Seq = SUPP.Supplier_Key LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_PMP04] LC ON h.Order_Number = LC.Order_Number AND s.Line_Number = LC.Line_Number LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_PMP02E] FRT ON h.Order_Number = FRT.Order_Number LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP35] R ON IT.Style = R.Item LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[Item_Class] C ON R.Item_Class = C.Class_Code LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] pgmn ON IT.Item_Group_Minor = pgmn.Parameter_Search_Key AND pgmn.Parameter_Type = 'PGMN' LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] pgmj ON IT.Item_Group_Major = pgmj.Parameter_Search_Key AND pgmj.Parameter_Type = 'PGMJ'
 WHERE        (h.Company_Number = 'DC') AND (h.Allocation_credit_check <> 'C') AND (h.Warehouse <> '(NE,ME)')
 
 GO

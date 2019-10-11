@@ -46,19 +46,19 @@ SELECT        h.Company_Number AS Hdr_Company_Number, h.Order_Number AS Hdr_Orde
                          disc.Invoice_Type AS d_Invoice_Type, disc.VAT_Rate_1 AS d_VAT_Rate_1, disc.VAT_Rate_2 AS d_VAT_Rate_2, disc.VAT_Rate AS d_VAT_Rate, disc.Normal_VAT_Amount_Prime AS d_Normal_VAT_Amount_Prime, 
                          disc.Extra_VAT_Amount_Prime AS d_Extra_VAT_Amount_Prime, disc.Normal_VAT_Amount_Base AS d_Normal_VAT_Amount_Base, disc.Extra_VAT_Amount_Base AS d_Extra_VAT_Amount_Base, 
                          disc.Provincial_Sales_Tax_Value AS d_Provincial_Sales_Tax_Value, SLSREP.Sales_Rep_Name
-FROM            [DickiesLife_Europe_BI].[dbo].[raw_OEP40] AS h INNER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_OEP55] AS l ON h.Order_Key = l.Order_Key INNER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_APP52] AS s ON l.Order_Line_Key = s.Order_Line_Key INNER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_SLP05] AS addr ON h.Customer_Key = addr.Customer_Key LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP35] AS item ON s.Product_Key = item.Product_Key LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[Item_Class] AS itc ON item.Item_Class = itc.Class_Code LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] AS pgmn ON item.Item_Group_Minor = pgmn.Parameter_Search_Key AND pgmn.Parameter_Type = 'PGMN' LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] AS pgmj ON item.Item_Group_Major = pgmj.Parameter_Search_Key AND pgmj.Parameter_Type = 'PGMJ' LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] AS ortp ON h.Order_Type = ortp.Parameter_Search_Key AND ortp.Parameter_Type = 'ORTP' LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] AS srce ON h.Order_Source = srce.Parameter_Search_Key AND srce.Parameter_Type = 'SRCE' LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] AS susp ON h.Order_Suspend_Code = susp.Parameter_Search_Key AND susp.Parameter_Type = 'SUSP' LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[raw_OEP50] AS disc ON h.Order_Key = disc.Charges_Key LEFT OUTER JOIN
-                         [DickiesLife_Europe_BI].[dbo].[Sales_Reps] AS SLSREP ON h.Salesman = SLSREP.Sales_Rep_Code
+FROM            [DickiesLife_Europe_BI].[dbo].[raw_OEP40] h INNER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_OEP55] l ON h.Order_Key = l.Order_Key INNER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_APP52] s ON l.Order_Line_Key = s.Order_Line_Key INNER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_SLP05] addr ON h.Customer_Key = addr.Customer_Key LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP35] item ON s.Product_Key = item.Product_Key LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[Item_Class] itc ON item.Item_Class = itc.Class_Code LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] pgmn ON item.Item_Group_Minor = pgmn.Parameter_Search_Key AND pgmn.Parameter_Type = 'PGMN' LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] pgmj ON item.Item_Group_Major = pgmj.Parameter_Search_Key AND pgmj.Parameter_Type = 'PGMJ' LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] ortp ON h.Order_Type = ortp.Parameter_Search_Key AND ortp.Parameter_Type = 'ORTP' LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] srce ON h.Order_Source = srce.Parameter_Search_Key AND srce.Parameter_Type = 'SRCE' LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_INP15] susp ON h.Order_Suspend_Code = susp.Parameter_Search_Key AND susp.Parameter_Type = 'SUSP' LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[raw_OEP50] disc ON h.Order_Key = disc.Charges_Key LEFT OUTER JOIN
+                         [DickiesLife_Europe_BI].[dbo].[Sales_Reps] SLSREP ON h.Salesman = SLSREP.Sales_Rep_Code
 WHERE        (s.Status <> 'X')
 
 GO
