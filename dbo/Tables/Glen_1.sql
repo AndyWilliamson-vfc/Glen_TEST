@@ -5,7 +5,7 @@
     [Period Year]           DECIMAL (4)     NULL,
     [Period Month]          DECIMAL (2)     NULL,
     [Period Date]           DATETIME        NULL,
-    [VF Invoice Period]     DECIMAL (5)     NOT NULL,
+    [VF Invoice Period]     DECIMAL (5)     NULL,
     [VF Period Year]        DECIMAL (4)     NOT NULL,
     [VF Period Month]       DECIMAL (2)     NOT NULL,
     [VF Period Date]        DATETIME        NULL,
