@@ -87,7 +87,6 @@
     <Build Include="dbo\Views\SuppTest2.sql" />
     <Build Include="dbo\Views\Parameters.sql" />
     <Build Include="dbo\Views\All_POs.sql" />
-    <Build Include="dbo\Views\All_Sales_Orders.sql" />
     <Build Include="dbo\Views\VECTA.sql" />
     <Build Include="dbo\Views\SalesmanF.sql" />
     <Build Include="Security\DICKIES_gmiller.sql" />
