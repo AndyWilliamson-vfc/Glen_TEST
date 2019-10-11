@@ -1,0 +1,2 @@
+﻿CREATE USER [DICKIES\gmiller] FOR LOGIN [DICKIES\gmiller];
+

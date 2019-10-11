@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [SteveClayton]
+    WITH PASSWORD = N'yHjg9wflzr0m!p}eehkqZfdqmsFT7_&#$!~<^fnncuopxh>4', SID = 0xD207D079954C1C4CB15CB49E35D9E2D4, DEFAULT_DATABASE = [Dickies_BI_UK], DEFAULT_LANGUAGE = [us_english], CHECK_EXPIRATION = ON;
+

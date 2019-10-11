@@ -7,14 +7,14 @@
     <Name>Glen_TEST</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{2289ac06-da70-40ea-b3fc-147519b69317}</ProjectGuid>
+    <ProjectGuid>{63a592dc-8375-4947-9220-1fc553dc244b}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>Glen_TEST</RootNamespace>
     <AssemblyName>Glen_TEST</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -23,6 +23,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,5 +59,45 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\cust_dist_chnl_1.sql" />
+    <Build Include="dbo\Tables\Glen_2.sql" />
+    <Build Include="dbo\Tables\class_1.sql" />
+    <Build Include="dbo\Tables\supplier_1.sql" />
+    <Build Include="dbo\Tables\period_dates_lookup_1.sql" />
+    <Build Include="dbo\Tables\Glen_1_1.sql" />
+    <Build Include="dbo\Tables\Inventory_Summary_w_1.sql" />
+    <Build Include="dbo\Tables\calendar_1.sql" />
+    <Build Include="dbo\Tables\raw_dkpmp70_1.sql" />
+    <Build Include="dbo\Tables\factory_1.sql" />
+    <Build Include="dbo\Tables\pricelist1_1.sql" />
+    <Build Include="dbo\Tables\F19_Salesman_Forecast_Template_1.sql" />
+    <Build Include="dbo\Tables\salesmanf19_1.sql" />
+    <Build Include="dbo\Tables\CountryCodes_1.sql" />
+    <Build Include="dbo\Tables\Full Line List with Sls Forecast_1.sql" />
+    <Build Include="dbo\Views\Class_lkup_1.sql" />
+    <Build Include="dbo\Views\Supplier_lkup_1.sql" />
+    <Build Include="dbo\Views\SuppTest_1.sql" />
+    <Build Include="dbo\Views\SuppTest2_1.sql" />
+    <Build Include="dbo\Views\Parameters_1.sql" />
+    <Build Include="dbo\Views\All_POs_1.sql" />
+    <Build Include="dbo\Views\All_Sales_Orders_1.sql" />
+    <Build Include="dbo\Views\VECTA_1.sql" />
+    <Build Include="dbo\Views\SalesmanF_1.sql" />
+    <Build Include="Security\DICKIES_gmiller_2.sql" />
+    <Build Include="Security\DICKIES_gmiller_3.sql" />
+    <Build Include="Security\SteveClayton_2.sql" />
+    <Build Include="Security\SteveClayton_3.sql" />
+    <Build Include="Security\RoleMemberships_1.sql" />
+    <Build Include="Security\RoleMemberships_2.sql" />
+    <Build Include="dbo\Stored Procedures\Append_Glen_1.sql" />
+    <Build Include="dbo\Stored Procedures\Append_smry_inventory_w_1.sql" />
+    <Build Include="dbo\Stored Procedures\refresh_raw_dkpmp70_1.sql" />
   </ItemGroup>
 </Project>
