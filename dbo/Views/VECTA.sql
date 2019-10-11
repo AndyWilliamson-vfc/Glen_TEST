@@ -7,9 +7,9 @@ SELECT        INV.Company, INV.[Invoice Number], INV.[Invoice Period], INV.[Peri
                          CUST.[Customer Territory], CUST.[Post Code], CUST.Outcode, CUST.[Country Code], CUST.[Vat Country], CUST.[Vat Registration], ITEMS.[SKU Key] AS Expr2, ITEMS.[SKU Code], ITEMS.[SKU Description], ITEMS.Style, 
                          ITEMS.[Style Description], ITEMS.Colour, ITEMS.[Colour Description], ITEMS.Size, ITEMS.[Size Description], ITEMS.[Product Type], ITEMS.[Product Class], ITEMS.[Product Major], ITEMS.[Product Minor], ITEMS.[Product Country], 
                          ITEMS.Division, REPLACE(ITEMS.Style, ' ', '') + REPLACE(ITEMS.Colour, ' ', '') AS StyCol
-FROM            Dickies_BI_Vecta.dbo.Invoices AS INV INNER JOIN
-                         Dickies_BI_Vecta.dbo.Customers AS CUST ON INV.[Customer Key] = CUST.[Customer Key] INNER JOIN
-                         Dickies_BI_Vecta.dbo.Items AS ITEMS ON INV.[SKU Key] = ITEMS.[SKU Key]
+FROM            [Dickies_BI_Vecta].[dbo].[Invoices] AS INV INNER JOIN
+                         [Dickies_BI_Vecta].[dbo].[Customers] AS CUST ON INV.[Customer Key] = CUST.[Customer Key] INNER JOIN
+                         [Dickies_BI_Vecta].[dbo].[Items] AS ITEMS ON INV.[SKU Key] = ITEMS.[SKU Key]
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
